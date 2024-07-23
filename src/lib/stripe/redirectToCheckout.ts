@@ -1,4 +1,3 @@
-// import { PaymentType } from '@shortslol/common';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-hot-toast';
 

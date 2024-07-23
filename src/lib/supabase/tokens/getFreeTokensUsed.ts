@@ -1,4 +1,3 @@
-// import { USERS_TABLE } from '@shortslol/common';
 
 import { supabase } from "@/lib/supabaseClient";
 

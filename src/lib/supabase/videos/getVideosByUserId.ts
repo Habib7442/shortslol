@@ -1,5 +1,6 @@
 // import { VIDEOS_TABLE, VideoTable } from '@shortslol/common';
 
+import { VideoTable } from "@/components/LoadingList";
 import { supabase } from "@/lib/supabaseClient";
 
 export const getVideosByUserId = async (id: string) => {

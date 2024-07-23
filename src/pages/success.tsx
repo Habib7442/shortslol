@@ -1,12 +1,18 @@
 // pages/success.tsx
 
-import { PaymentType } from '@shortslol/common';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+// import { PaymentType } from '@shortslol/common';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-import { getCheckoutSession, initiateSubscription } from '@/lib';
+import { getCheckoutSession, initiateSubscription } from "@/lib";
 
-import ButtonLink from '@/components/links/ButtonLink';
+import ButtonLink from "@/components/links/ButtonLink";
+
+enum PaymentType {
+  BASIC = "BASIC",
+  STANDARD = "STANDARD",
+  PREMIUM = "PREMIUM",
+}
 
 const Success = () => {
   const router = useRouter();
@@ -18,10 +24,10 @@ const Success = () => {
       if (sessionId) {
         const session = await getCheckoutSession(sessionId);
 
-        console.log('got here', session);
+        console.log("got here", session);
 
         if (!session) {
-          throw new Error('Session not found');
+          throw new Error("Session not found");
         }
 
         // eslint-disable-next-line no-console
@@ -30,24 +36,24 @@ const Success = () => {
         const priceId = session.metadata?.priceId;
 
         if (!priceId) {
-          throw new Error('PriceID not found in Stripe session');
+          throw new Error("PriceID not found in Stripe session");
         }
 
         const paymentType = session.metadata?.paymentType as PaymentType;
 
         if (!paymentType) {
-          throw new Error('Payment type not found in Stripe session');
+          throw new Error("Payment type not found in Stripe session");
         }
 
         const userId = session.metadata?.userId;
 
         if (!userId) {
-          throw new Error('User ID not found in Stripe session');
+          throw new Error("User ID not found in Stripe session");
         }
 
-        await initiateSubscription(userId, sessionId, paymentType);
+        await initiateSubscription(userId, sessionId, paymentType as any);
 
-        router.push('/dashboard');
+        router.push("/dashboard");
       }
     };
 
@@ -55,13 +61,13 @@ const Success = () => {
   }, [router, router.query.session_id]);
 
   return (
-    <div className='flex h-screen w-full flex-col items-center justify-center gap-y-4 text-center'>
+    <div className="flex h-screen w-full flex-col items-center justify-center gap-y-4 text-center">
       <h1>Payment successful! ✅</h1>
       <p>You will automatically be redirected to the dashboard.</p>
-      <p className='text-center text-gray-500'>
+      <p className="text-center text-gray-500">
         Any issues please reach out to team@shorts.lol
       </p>
-      <ButtonLink variant='dark' href='/dashboard'>
+      <ButtonLink variant="dark" href="/dashboard">
         Back to home
       </ButtonLink>
     </div>

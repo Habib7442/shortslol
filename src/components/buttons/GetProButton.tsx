@@ -1,4 +1,3 @@
-import { PaymentType } from '@shortslol/common';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCrown } from 'react-icons/fa';
@@ -10,6 +9,12 @@ import clsxm from '@/lib/clsxm';
 import Button from '@/components/buttons/Button';
 
 import { useUser } from '@/contexts';
+
+enum PaymentType {
+  BASIC = 'BASIC',
+  STANDARD = 'STANDARD',
+  PREMIUM = 'PREMIUM'
+}
 
 const GetProButton = ({ isRedirectToCheckout = true }) => {
   const { email, user } = useUser();

@@ -1,5 +1,4 @@
 import { MailIcon } from "@heroicons/react/outline";
-// import { USERS_TABLE } from '@shortslol/common';
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
