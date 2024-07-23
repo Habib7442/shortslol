@@ -1,9 +1,4 @@
-// import {
-//   SUBSCRIPTIONS_TABLE,
-//   TOKEN_LIMITS,
-//   USERS_TABLE,
-//   VIDEOS_TABLE,
-// } from '@shortslol/common';
+
 import toast from "react-hot-toast";
 
 import { getCurrentSubscription } from "./subscriptions/getCurrentSubscription";

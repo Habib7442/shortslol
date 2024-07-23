@@ -1,8 +1,16 @@
-import { VideoTable } from '@shortslol/common';
 import { useState } from 'react';
 import { ErrorIcon } from 'react-hot-toast';
 
 import { VideoGenerationStepsService } from '@/domain/services/videoGenerationStepsService';
+
+export interface VideoTable {
+  has_prompt: boolean;
+  has_images: boolean;
+  has_voiceover: boolean;
+  has_subtitles: boolean;
+  url: string | null;
+  error_message?: string;
+}
 
 type VideoErrorProps = {
   video: VideoTable;

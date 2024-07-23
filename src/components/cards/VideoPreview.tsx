@@ -1,5 +1,4 @@
 import { DownloadIcon, LinkIcon } from '@heroicons/react/outline';
-import { VideoTable } from '@shortslol/common';
 import { format } from 'date-fns';
 import { useState } from 'react';
 
@@ -8,6 +7,18 @@ import { CopyService } from '@/domain';
 import Button from '../buttons/Button';
 import ButtonLink from '../links/ButtonLink';
 import NextImage from '../NextImage';
+
+type VideoTable = {
+  id: string;
+  title: string;
+  url: string;
+  duration: number;
+  thumbnail: string;
+  error_message?: string;
+  prompt:string;
+  thumbnail_url: string;
+  created_at: string;
+};
 
 export type VideoPreviewProps = {
   video: VideoTable;

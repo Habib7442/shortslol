@@ -1,6 +1,6 @@
 // pages/success.tsx
 
-// import { PaymentType } from '@shortslol/common';
+
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 

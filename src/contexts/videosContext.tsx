@@ -1,4 +1,3 @@
-// import { VideoTable } from '@shortslol/common';
 import React, { Dispatch, SetStateAction, useState } from 'react';
 
 type VideoTable = {

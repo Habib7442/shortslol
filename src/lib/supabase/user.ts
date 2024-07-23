@@ -1,10 +1,18 @@
-// import {
-//   SUBSCRIPTIONS_TABLE,
-//   SubscriptionTable,
-// } from '@shortslol/common';
+
 
 import { supabase } from '../supabaseClient';
 const SUBSCRIPTIONS_TABLE = "subscriptions";
+
+type SubscriptionTable = {
+  id: number;
+  stripe_subscription_id: string;
+  user_id: string;
+  plan: string;
+  status: string;
+  created_at: string; // or Date if you plan to convert it
+ 
+};
+
 
 export const getUserByStripeCustomerId = async (
   stripeCustomerId: string

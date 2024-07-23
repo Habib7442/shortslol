@@ -1,4 +1,4 @@
-import { VideoTable } from '@shortslol/common';
+
 import { differenceInMinutes } from 'date-fns';
 import { BiLoader } from 'react-icons/bi';
 import { PiWarningBold } from 'react-icons/pi';
@@ -6,6 +6,15 @@ import { PiWarningBold } from 'react-icons/pi';
 import { VideoGenerationStepsService } from '@/domain/services/videoGenerationStepsService';
 
 import LoadingList from '../LoadingList';
+export interface VideoTable {
+  has_prompt: boolean;
+  has_images: boolean;
+  has_voiceover: boolean;
+  has_subtitles: boolean;
+  url: string | null;
+  error_message?: string;
+  created_at?: string;
+}
 
 type VideoLoadingProps = {
   video: VideoTable;

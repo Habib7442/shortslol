@@ -1,4 +1,3 @@
-// import { EMAILS_TABLE } from '@shortslol/common';
 
 import { supabase } from '../supabaseClient';
 
