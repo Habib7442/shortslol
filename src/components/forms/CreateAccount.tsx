@@ -42,18 +42,19 @@ const CreateAccount = ({ passedEmail }: { passedEmail?: string }) => {
           const { error: insertError } = await supabase.from(USERS_TABLE).insert([
             {
               id: data.user.id,
+              email: email,
             },
           ]);
-  
+        
           if (insertError) {
             console.log(insertError);
             toast.error("An error occurred while saving user data.");
             return;
           }
-  
+        
           // Always show the success message for the sign-up attempt
           toast.success("Please check your email for the confirmation link.");
-  
+        
           // Check if email is confirmed
           if (data.user.email_confirmed_at === null) {
             setCheckEmail(true);
@@ -65,10 +66,11 @@ const CreateAccount = ({ passedEmail }: { passedEmail?: string }) => {
               created_at: data.user.created_at,
               free_credits_used: 0,
             });
-  
+        
             router.push("/dashboard");
           }
         }
+        
       } catch (error: any) {
         console.log(error);
         toast.error("An unexpected error occurred.");

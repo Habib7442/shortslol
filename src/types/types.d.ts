@@ -3,7 +3,8 @@ export interface Subscription {
   user_id: string;
   start_date: string;
   end_date: string;
-  // Add any other relevant fields
+  tier: string; 
+  tokens_used: number;
 }
 
 export interface PopulatedUser {
