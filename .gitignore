@@ -51,6 +51,7 @@ Thumbs.db
 *.pem
 # ignore local environment files
 .env.local
+service-account-file.json
 # --------------------------------------------------------
 # BEGIN Explicitly Allowed Files (i.e. do NOT ignore these)
 # --------------------------------------------------------
